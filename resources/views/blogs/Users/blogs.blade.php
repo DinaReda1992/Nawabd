@@ -76,7 +76,7 @@
                                             <li>
                                                 @foreach ($category->blogs as $blog)
                                                     <a href={{ route('blogs.showBlogUser', $blog->id) }}>
-                                                        {{ $blog->title }}
+                                                        {!! substr($blog->title,0,60) !!}...
                                                     </a>
                                                 @endforeach
                                             </li>
