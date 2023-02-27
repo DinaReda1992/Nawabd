@@ -57,7 +57,7 @@
                         <div class="sidebar-search-form mb-85 sm-mb-60">
                             <form method="GET">
                                 <input type="text" name="search" value="{{ request()->get('search') }}"
-                                    class="form-control" placeholder="بحث..." aria-label="Search"
+                                    class="form-control" placeholder="بحث عن تصنيف..." aria-label="Search"
                                     aria-describedby="button-addon2">
                                 <button type="submit" id="button-addon2">
                                     <i class="fas fa-search"></i>
