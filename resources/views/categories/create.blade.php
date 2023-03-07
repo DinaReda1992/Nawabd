@@ -2,7 +2,7 @@
 
 @section('content')
 <title>إضافة تصنيف</title>
-<div class="card-header">
+<div class="container">
     <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
         <div class="card-body">

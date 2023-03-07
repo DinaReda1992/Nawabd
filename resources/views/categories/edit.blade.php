@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 @section('content')
 <title>تعديل المقال</title>
-    <div class="card-header">
+    <div class="container">
         <form action={{ route('categories.update', $category->id) }} method="post" enctype="multipart/form-data" autocomplete="off">
             @csrf
             @method('post')
@@ -12,7 +12,7 @@
                         value="{{ old('category_name', $category->category_name) }}" required autocomplete="category_name" autofocus
                         title="يرجي ادخال عنوان التصنيف" required>
                 </div>
-                <button type="submit" class="btn btn-primary">حفظ البيانات</button>
+                <button type="submit" class="btn btn-primary mt-3">حفظ البيانات</button>
             </form>
     </div>
 @endsection

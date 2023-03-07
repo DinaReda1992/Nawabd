@@ -27,6 +27,7 @@
     <link href="{{ URL::asset('assets/css/animate.min.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets/css/aos.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets/css/app.css') }}" rel="stylesheet"> 
+    <link href="{{ URL::asset('assets/css/bootstrap-tagsinput.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets/css/bootstrap-rtl.min.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets\css\bootstrap.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets/css/custom-animation.css') }}" rel="stylesheet"> 
@@ -72,6 +73,8 @@
     <script src="{{ URL::asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/slick.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/theme.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/bootstrap-tagsinput.js') }}"></script>
+    @stack('scripts')
     
 </body>
     

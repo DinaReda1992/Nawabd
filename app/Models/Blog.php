@@ -2,15 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Scout\Searchable;
-   
+use League\CommonMark\DocParser;
+use League\CommonMark\HtmlRenderer;
+use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentTaggable\Taggable;
+use Cviebrock\EloquentTaggable\Models\Tag;
+use league\commonmark\Environment\Environment;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;   
 
 class Blog extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory, Searchable , Taggable;
+
     protected $fillable = [
         'title' , 'content' , 'author', 'logo', 'createdBy', 'category_id'
     ];

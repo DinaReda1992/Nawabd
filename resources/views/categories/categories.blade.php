@@ -2,25 +2,28 @@
 @section('content')
     <title>المقالات</title>
     <section class="container">
-        <div class="row">
-            <div class="col-12" style="display: flex; justify-content: space-between">
-                <a href={{ route('categories.create') }} class="btn btn-primary my-3 px-5 rounded-pill text-white"><i
-                        class="fas fa-plus" style="padding: 20px"></i> إضافة تصنيف </a>
-                <form action="{{ route('categories.index') }}" method="GET">
-                    <label for="search" class="sr-only">
-                        Search
-                    </label>
-                    <input type="text" name="s"
-                        class="block w-full p-3 pl-10 text-sm border-gray-200 rounded-lg focus:border-blue-200 focus:ring-blue-500 dark:bg-gray-400 dark:border-gray-600 dark:text-gray-200"
-                        placeholder="بحث..." style="margin-top: 18px" />
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                        <button type="submit" style="margin:-39px 169px 0px 0px">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </form>
+            <div class="row align-items-start">
+                <div class="col">
+                    <a href={{ route('categories.create') }} class="btn btn-primary my-3 px-5 rounded-pill text-white"><i
+                            class="fas fa-plus" style="padding: 20px"></i> إضافة تصنيف </a>
+                </div>
+                <div class="col">
+                    <form action="{{ route('categories.index') }}" method="GET">
+                        <label for="search" class="sr-only">
+                            Search
+                        </label>
+                        <input type="text" name="s"
+                            class="block w-full p-3 pl-10 text-sm border-gray-200 rounded-lg focus:border-blue-200 focus:ring-blue-500 dark:bg-gray-400 dark:border-gray-600 dark:text-gray-200"
+                            placeholder="بحث..." style="margin-top: 18px" />
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                            <button type="submit" style="margin:-39px 155px 0px 0px">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="col-12">
+            <div class="col-4">
                 <div class='errors'>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -67,52 +70,6 @@
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    {{--  Accordion  --}}
-                    {{--  @foreach ($categories as $category)
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <a href={{ route('categories.showCategory', $category->id) }} class="btn btn-sm btn-info"
-                                    title="إظهار المحتوى">
-                                    <i class="far fa-eye"></i></a>
-                                <a class="modal-effect btn btn-sm btn-danger open-delete-modal" data-effect="effect-scale"
-                                    data-id="{{ $category->id }}" data-category_name="{{ $category->category_name }}"
-                                    data-url={{ route('categories.destroy', $category->id) }} data-toggle="modal"
-                                    data-target="#deleteCategory" title="حذف">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
-                                <a href={{ route('categories.edit', $category->id) }} class="btn btn-sm btn-primary"
-                                    title="تعديل">
-                                    <i class="fas fa-edit"></i></a>
-                                <h2 class="accordion-header" id="headingOne">
-
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#acoordion{{ $category->id }}" aria-expanded="true"
-                                        aria-controls="collapseOne">
-                                        {{ $category->category_name }}
-
-                                    </button>
-
-                                </h2>
-                                <div id="acoordion{{ $category->id }}" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    @if ($category->blogs)
-                                        <table>
-                                            @foreach ($category->blogs as $blog)
-                                                <tr>
-                                                    <td>
-                                                        <a href={{ route('categories.showCategory', $category->id) }}
-                                                        <option value="{{ $blog->id }}"
-                                                            {{ $blog->id === old('category_id') ? 'selected' : '' }}>
-                                                            &nbsp;&nbsp;{{ $blog->title }}</option></a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </table>
-                                    @endif
-                                </div>
-                            </div>
-                    @endforeach  --}}
-                    {{--  end accordion  --}}
                     <div class="table-responsive">
                         <table id="example" class="table table-hover table-striped">
                             <thead class="table-dark">
@@ -182,6 +139,15 @@
                             </form>
                         </div>
                     </div>
+                </div>
+                <div class="logout" style="margin: 20px auto">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <button type="submit" class="btn btn-dark">
+                            {{ __('Log Out') }}
+                        </button>
+                    </form>
                 </div>
             </div>
         @endsection

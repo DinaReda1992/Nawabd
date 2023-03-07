@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 
@@ -36,6 +37,12 @@ Route::middleware('auth')->group(function () {
     //Route::delete('/blogs/destroy/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy')->middleware('admin');
     Route::resource('/blogs', BlogController::class)->middleware('admin');;
 
+
+    Route::get('/banner', [BannerController::class, 'index'])->name('banner.index')->middleware('admin');
+    Route::get('/banner/create', [BannerController::class, 'create'])->name('banner.create')->middleware('admin');
+    Route::post('/banner/store', [BannerController::class, 'store'])->name('banner.store')->middleware('admin');
+    Route::get('/banner/{id}', [BannerController::class, 'edit'])->name('banner.edit')->middleware('admin');
+    Route::post('/banner/{id}', [BannerController::class, 'update'])->name('banner.update')->middleware('admin');
 
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/{id}/showCategory', [CategoryController::class, 'showCategory'])->name('categories.showCategory')->middleware('admin');
