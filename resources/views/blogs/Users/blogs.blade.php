@@ -14,7 +14,7 @@
                     @foreach ($blogs as $blog)
                         <div class="post-meta">
                             <a href={{ route('blogs.showBlogUser', $blog->id) }} title="إظهار المحتوى">
-                                <img src="{{ asset('/storage/' . $blog->logo) }}" class='image-meta'
+                                <img src="{{ asset('/images/' . $blog->logo) }}" class='image-meta'
                                     style="margin-top:25px">
                                 </a>
                             <div class="post" style="border: 2px gray bold">

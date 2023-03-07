@@ -26,7 +26,6 @@
     {{--  template css  --}}
     <link href="{{ URL::asset('assets/css/animate.min.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets/css/aos.css') }}" rel="stylesheet"> 
-    <link href="{{ URL::asset('assets/css/app.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets/css/bootstrap-tagsinput.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets/css/bootstrap-rtl.min.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets\css\bootstrap.css') }}" rel="stylesheet"> 
@@ -42,7 +41,8 @@
     <link href="{{ URL::asset('assets\fonts\gordita\stylesheet.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets\fonts\font-awesome\css\font-awesome.css') }}" rel="stylesheet"> 
     <link href="{{ URL::asset('assets\fonts\font-awesome\css\font-awesome.min.css') }}" rel="stylesheet"> 
-    
+        <link href="{{ URL::asset('assets/css/app.css') }}" rel="stylesheet"> 
+
     {{--  end css  --}}
 
     <script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>

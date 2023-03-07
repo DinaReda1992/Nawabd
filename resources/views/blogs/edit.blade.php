@@ -47,7 +47,7 @@
                     <label for="logo">المرفقات</label>
                     <input type="file" name="logo" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
                         data-height="70" value="{{ old('logo', $blog->logo) }}" autocomplete="logo" autofocus />
-                    <img src="{{ asset('/storage/' . $blog->logo) }}" width="150" height="150">{{ $blog->logo }}
+                    <img src="{{ asset('/images/' . $blog->logo) }}" width="150" height="150">{{ $blog->logo }}
                     <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
                 </div><br>
             </div>
