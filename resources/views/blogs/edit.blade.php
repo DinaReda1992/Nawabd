@@ -1,65 +1,70 @@
 @extends('layouts.admin-master')
 @section('content')
-<title>تعديل المقال</title>
+    <title>تعديل المقال</title>
     <div class="card-header">
         <form action={{ route('blogs.update', $blog->id) }} method="post" enctype="multipart/form-data" autocomplete="off">
             @csrf
             @method('post')
             <div class="container">
                 <div class='row'>
-                    <label for="title" class="control-label">عنوان المدونة</label>
-                    <input type="text" class="form-control" id="title" name="title"
-                        value="{{ old('title', $blog->title) }}" required autocomplete="title" autofocus
-                        title="يرجي ادخال عنوان المدونة" required>
-                </div><br>
-                <div class='row'>
-                    <label for="tag" class="control-label"> الكلمات الدلالية الموجودة حاليا</label>
-                        @foreach ($tags as $tag)
-                        <span class="badge bg-secondary m-2" style="width:100px"> {{ $tag->name }}</span>
-                        @endforeach
-                    <label for='tags' class="custom-control-label"> الكلمات الدلالية للمقال </label>
-                    <input type="text" class="form-control" id="tag" data-role="tagsinput" name="tag"
-                        value="{{ old('tag',$blog->tagList) }}" autocomplete="tag" autofocus> 
+                    <div class="col-12 mt-3">
+                        <label for="title" class="control-label">عنوان المدونة</label>
+                        <input type="text" class="form-control" id="title" name="title"
+                            value="{{ old('title', $blog->title) }}" required autocomplete="title" autofocus
+                            title="يرجي ادخال عنوان المدونة" required>
                     </div>
-                <div class='row'>
-                    <label for="content" class="control-label">محتوى المدونة</label>
-                    <textarea type="text" class="ckeditor form-control" id="content" name="content" role="textbox"
-                         value="{{ old('content', $blog->content) }}" required autocomplete="content" autofocus required>
+                    <div class="col-12 mt-3">
+                        <label for="tag" class="control-label w-100"> الكلمات الدلالية الموجودة حاليا</label>
+                        @foreach ($tags as $tag)
+                            <span class="badge bg-secondary m-2" style="width:100px"> {{ $tag->name }}</span>
+                        @endforeach
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for='tags' class="form-label"> الكلمات الدلالية للمقال </label>
+                        <input type="text" class="form-control" id="tag" data-role="tagsinput" name="tag"
+                            value="{{ old('tag', $blog->tagList) }}" autocomplete="tag" autofocus>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="content" class="control-label">محتوى المدونة</label>
+                        <textarea type="text" class="ckeditor form-control" id="content" name="content" role="textbox"
+                            value="{{ old('content', $blog->content) }}" required autocomplete="content" autofocus required>
                         {{ $blog->content }} 
                     </textarea>
-                </div><br>
-                <div class='row'>
-                    <label for="category" class="control-label">التصنيف</label>
-                    <select name="category_id" class="custom-select my-1 mr-sm-2" required>
-                        <!--placeholder-->
-                        <option value="" selected disabled>حدد الفئة</option>
-                        @foreach ($categories as $category)
-                            <option value={{ $category->id }} @selected($category->id == $blog->category_id)> {{ $category->category_name }}</option>
-                        @endforeach
-                    </select>
-                </div><br>
-                <div class='row'>
-                    <label for="author" class="control-label">المؤلف</label>
-                    <input type="text" id="author" name="author" class="form-control"
-                        value="{{ old('author', $blog->author) }}" required autocomplete="author" autofocus>
-                </div><br>
-                <div class='row'>
-                    <label for="logo">المرفقات</label>
-                    <input type="file" name="logo" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
-                        data-height="70" value="{{ old('logo', $blog->logo) }}" autocomplete="logo" autofocus />
-                    <img src="{{ asset('/images/' . $blog->logo) }}" width="150" height="150">{{ $blog->logo }}
-                    <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
-                </div><br>
-            </div>
-            <button type="submit" class="btn btn-primary">حفظ البيانات</button>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="category" class="control-label">التصنيف</label>
+                        <select name="category_id" class="custom-select my-1 mr-sm-2" required>
+                            <!--placeholder-->
+                            <option value="" selected disabled>حدد الفئة</option>
+                            @foreach ($categories as $category)
+                                <option value={{ $category->id }} @selected($category->id == $blog->category_id)>
+                                    {{ $category->category_name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <label for="author" class="control-label">المؤلف</label>
+                        <input type="text" id="author" name="author" class="form-control"
+                            value="{{ old('author', $blog->author) }}" required autocomplete="author" autofocus>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="logo">المرفقات</label>
+                        <input type="file" name="logo" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
+                            data-height="70" value="{{ old('logo', $blog->logo) }}" autocomplete="logo" autofocus />
+                        <img src="{{ asset('/images/' . $blog->logo) }}" width="150" height="150">{{ $blog->logo }}
+                        <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
+                    </div>
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-secondary">حفظ البيانات</button>
+                </div>
         </form>
     </div>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/super-build/ckeditor.js"></script>
     {{--  <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/super-build/ckeditor.js"></script>  --}}
-    @push('scripts')   
-
+    @push('scripts')
         <script>
-           
             CKEDITOR.ClassicEditor
                 .create(document.querySelector("#content"), {
                     // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
@@ -190,7 +195,7 @@
                         }
                     },
                     // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
-                   
+
                     // The "super-build" contains more premium features that require additional configuration, disable them below.
                     // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
                     removePlugins: [
@@ -220,26 +225,21 @@
                         // from a local file system (file://) - load this site via HTTP server if you enable MathType
                         'MathType'
                     ]
-                }).then( editor => {
+                }).then(editor => {
                     window.editor = editor;
                     console.log(editor)
-                } )
-                .catch( err => {
-                    console.error( err.stack );
-                } );
+                })
+                .catch(err => {
+                    console.error(err.stack);
+                });
 
 
 
 
 
-                ////////////////////////////////////////////////////////
-
-
-
-                
-                
+            ////////////////////////////////////////////////////////
         </script>
-    {{--  <script>
+        {{--  <script>
         const tags = {{ Js::from($tags) }};
         let tagsArr = [];
         tags.forEach((tag) =>{
@@ -433,5 +433,5 @@
             
             
     </script>  --}}
-@endpush
+    @endpush
 @endsection
