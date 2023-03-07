@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\File;
 use App\Traits\uploadImageTrait;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Artisan;
 
 
 class BannerController extends Controller
@@ -30,6 +31,8 @@ class BannerController extends Controller
     public function create()
     {
         $banner = Banner::all();
+        Artisan::call('storage:link');
+
         return view('banners.create', compact('banner'));
     }
 

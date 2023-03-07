@@ -12,6 +12,7 @@ use App\Traits\uploadImageTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Artisan;
 use Cviebrock\EloquentTaggable\Taggable;
 use Cviebrock\EloquentTaggable\Models\Tag;
 
@@ -104,11 +105,12 @@ class BlogController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'createdBy' => (Auth::user()->name),
-            'logo' => $this->uploadImage($request,'images'),
+            'logo' => $this->uploadImage($request,'assets'),
             'author' => $request->author,
             'category_id' =>$request->category_id    
             ]);
-            $tags = explode('#',$request->tag);
+            $tags = explode(',',$request->tag);
+            Artisan::call('storage:link');
             $blog->tag($tags);
             session()->flash('Add', 'تم اضافة العنصر بنجاح');
             return redirect('/blogs');
@@ -176,6 +178,7 @@ class BlogController extends Controller
         }
         $tags = explode(',',$request->tag);
         $blog->retag($tags);
+        Artisan::call('storage:link');
         session()->flash('edit', 'تم التعديل بنجاح');
         return redirect('/blogs');
     }
