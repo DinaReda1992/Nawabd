@@ -154,7 +154,7 @@ class BlogController extends Controller
                 'title.required' => 'يرجى إدخال عنوان المدونة',
                 'description.required' => 'يرجى إدخال المحتوى ',
             ]);
-            $distination = 'images'.$blog->logo;
+            $distination = ''.$blog->logo;
             if (File::exists($distination))
             {
                 File::delete($distination);

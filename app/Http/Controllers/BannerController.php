@@ -85,7 +85,7 @@ class BannerController extends Controller
             ], [
                 'logo.mimes' => 'صيغة المرفق يجب ان تكون   pdf, jpeg , png , jpg',
             ]);
-            $distination = 'images'.$banner->logo;
+            $distination = ''.$banner->logo;
             if (File::exists($distination))
             {
                 File::delete($distination);

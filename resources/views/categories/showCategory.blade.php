@@ -3,8 +3,8 @@
 @section('content')
     <title>عرض التصنيف</title>
     <div class="container">
-        <div class='row'>
-            <h1><span class="badge bg-primary"> {{ $category->category_name }}</span></h1>
+        <div class='row mb-15'>
+            <h1><span class="badge bg-secondary"> {{ $category->category_name }}</span></h1>
         </div>
         <table class="table table-hover table-striped">
             <thead class="table-dark">

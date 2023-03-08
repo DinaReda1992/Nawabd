@@ -1,28 +1,28 @@
 @extends('layouts.admin-master')
 @section('content')
-    <title>المقالات</title>
-    <section class="container">
-            <div class="row align-items-start">
-                <div class="col">
-                    <a href={{ route('categories.create') }} class="btn btn-primary my-3 px-5 rounded-pill text-white"><i
-                            class="fas fa-plus" style="padding: 20px"></i> إضافة تصنيف </a>
-                </div>
-                <div class="col">
-                    <form action="{{ route('categories.index') }}" method="GET">
-                        <label for="search" class="sr-only">
-                            Search
-                        </label>
-                        <input type="text" name="s"
-                            class="block w-full p-3 pl-10 text-sm border-gray-200 rounded-lg focus:border-blue-200 focus:ring-blue-500 dark:bg-gray-400 dark:border-gray-600 dark:text-gray-200"
-                            placeholder="بحث..." style="margin-top: 18px" />
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                            <button type="submit" style="margin:-39px 155px 0px 0px">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+    <title>التصنيفات</title>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col p-lg-4">
+                <a href={{ route('categories.create') }} class="btn btn-secondary mt-15 p-lg-3"><i class="fas fa-plus"></i>
+                    إضافة تصنيف </a>
+            </div> 
+            <div class="col p-lg-3">
+                <form action="{{ route('categories.index') }}" method="GET">
+                    <label for="search" class="sr-only">
+                        Search
+                    </label>
+                    <input type="text" name="s"
+                        class="block w-full p-3 pl-10 text-sm border-gray-200 rounded-lg focus:border-blue-200 focus:ring-blue-500 dark:bg-gray-400 dark:border-gray-600 dark:text-gray-200"
+                        placeholder="بحث..." style="margin-top: 18px" />
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                        <button type="submit" style="margin:-39px 155px 0px 0px">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
+
             <div class="col-4">
                 <div class='errors'>
                     @if ($errors->any())
@@ -143,11 +143,14 @@
                 <div class="logout" style="margin: 20px auto">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-
-                        <button type="submit" class="btn btn-dark">
-                            {{ __('Log Out') }}
-                        </button>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-secondary">
+                                {{ __('Log Out') }}
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

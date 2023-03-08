@@ -1,20 +1,20 @@
 @extends('layouts.user-master')
 @section('meta_tags')
-<meta name="name" content="{{ Str::ucfirst($blog->title) }}">
-<meta name="keywords" content="{{ $blog->tagList }}">
-<meta name="author" content="{{ $blog->author }}">
-<meta name="description" content="{{ $blog->content }}">
-<link rel="canonical" href="{{ route('blogs.showBlogUser', $blog->id) }}">
-<meta property="og:title" content="{{ Str::ucfirst($blog->title) }}">
-<meta property="og:content" content="{{$blog->content}}">
-<meta property="og:type" content="article">
-<meta property="og:url" content="{{ route('blogs.showBlogUser', $blog->id) }}">
-<meta property="og:image" content="assets\images\images\{{ $blog->logo }}">
-<meta name="twitter:domain" content="{{ Request::getHost() }}">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{{ Str::ucfirst($blog->title) }}">
-<meta name="twitter:description" content="{{ $blog->content }}">
-<meta name="twitter:image" content="assets\images\images\{{ $blog->logo }}">
+    <meta name="name" content="{{ Str::ucfirst($blog->title) }}">
+    <meta name="keywords" content="{{ $blog->tagList }}">
+    <meta name="author" content="{{ $blog->author }}">
+    <meta name="description" content="{{ $blog->content }}">
+    <link rel="canonical" href="{{ route('blogs.showBlogUser', $blog->id) }}">
+    <meta property="og:title" content="{{ Str::ucfirst($blog->title) }}">
+    <meta property="og:content" content="{{ $blog->content }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ route('blogs.showBlogUser', $blog->id) }}">
+    <meta property="og:image" content="assets\images\images\{{ $blog->logo }}">
+    <meta name="twitter:domain" content="{{ Request::getHost() }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ Str::ucfirst($blog->title) }}">
+    <meta name="twitter:description" content="{{ $blog->content }}">
+    <meta name="twitter:image" content="assets\images\images\{{ $blog->logo }}">
 @endsection
 
 @section('content')
@@ -38,7 +38,6 @@
                         <div class="date">
                             {{ $blog->created_at->format('d/m/Y') }}
                         </div>
-
                         <b>{{ $blog->author }}
                         </b>
                         <hr>
@@ -57,7 +56,6 @@
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
