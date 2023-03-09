@@ -34,12 +34,7 @@
                                 </a>
                             </div>
                         </div>
-                    @endforeach
-                    <div class='page-pagination-one pt-15'>
-                        <div class="d-flex align-items-center">
-                            {!! $blogs->withQueryString()->links('pagination::bootstrap-4') !!}
-                        </div>
-                    </div>
+                    @endforeach                   
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-sidebar-one p-0">
@@ -76,6 +71,13 @@
                                 @endif
                             @endforeach
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class='page-pagination-one pt-15'>
+                        <div class="d-flex align-items-center">
+                            {!! $blogs->withQueryString()->links('pagination::bootstrap-4') !!}
                         </div>
                     </div>
                 </div>

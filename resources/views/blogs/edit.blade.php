@@ -1,7 +1,6 @@
 @extends('layouts.admin-master')
 @section('content')
     <title>تعديل المقال</title>
-    <div class="card-header">
         <form action={{ route('blogs.update', $blog->id) }} method="post" enctype="multipart/form-data" autocomplete="off">
             @csrf
             @method('post')
@@ -58,8 +57,10 @@
                     </div>
                 <div class="col-12 text-end">
                     <button type="submit" class="btn btn-secondary">حفظ البيانات</button>
+                    <a href="{{ url()->previous() }}" class="btn btn-secondary">تراجع</a>
                 </div>
         </form>
+    </div>
     </div>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/super-build/ckeditor.js"></script>
     {{--  <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/super-build/ckeditor.js"></script>  --}}

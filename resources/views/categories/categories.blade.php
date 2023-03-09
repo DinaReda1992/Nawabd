@@ -6,7 +6,7 @@
             <div class="col p-lg-4">
                 <a href={{ route('categories.create') }} class="btn btn-secondary mt-15 p-lg-3"><i class="fas fa-plus"></i>
                     إضافة تصنيف </a>
-            </div> 
+            </div>
             <div class="col p-lg-3">
                 <form action="{{ route('categories.index') }}" method="GET">
                     <label for="search" class="sr-only">
@@ -140,15 +140,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="logout" style="margin: 20px auto">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <div class="col-12 text-end">
+                <div class="footer" style="margin: 20px auto; display: flex">
+                    <div class="col-12 text-end">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
                             <button type="submit" class="btn btn-secondary">
-                                {{ __('Log Out') }}
+                                {{ __('تسجيل خروج') }}
                             </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <a href="{{ url('/blogs') }}" class="btn btn-secondary">تراجع</a>
                 </div>
             </div>
         </div>

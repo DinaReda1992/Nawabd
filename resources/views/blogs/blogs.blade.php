@@ -164,13 +164,13 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 text-end">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-secondary">
-                            {{ __('Log Out') }}
-                        </button>
-                    </div>
+                    <button type="submit" class="btn btn-secondary">
+                        {{ __('تسجيل خروج') }}
+                    </button>
                 </form>
+            </div>
         </div>
     @endsection

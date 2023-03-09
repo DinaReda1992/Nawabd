@@ -44,7 +44,7 @@
  
     <header>
     <div class="col-xl-9 col-lg-10 m-auto py-4 text-center text-white d-flex justify-content-between px-4 align-items-center">
-        <a href="{{ url('https://nawabd.com/') }}"><img src="\assets\images\logo\nawabd-logo.png" /></a>
+        <a href="{{ url('https://blog.nawabd.com/') }}"><img src="\assets\images\logo\nawabd-logo.png" /></a>
         <a href={{ url('https://nawabd.com/') }} class="btn  px-4 fw-bold our-store-btn" title="متجر نوابض ">متجر نوابض</a>
     </div>
     </header>

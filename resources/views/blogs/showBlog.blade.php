@@ -1,4 +1,5 @@
-@extends('layouts.user-master')
+@extends('layouts.user-master')   
+ <title>عرض المحتوى</title>
 @section('meta_tags')
     <meta name="name" content="{{ Str::ucfirst($blog->title) }}">
     <meta name="keywords" content="{{ $blog->tagList }}">
@@ -54,18 +55,13 @@
                                 <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.nawabd.com/{{ $blog->id }}/blog "
                                         style="background: #588DE7;"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                 </li>
-                            </ul>
+                            </ul>                                
+                                <a href="{{ url()->previous() }}" class="btn btn-secondary">تراجع</a>
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </div> <!-- /.feature-blog-one -->
-    <title>عرض المحتوى</title>
-    <div class="blog-page-white-bg blog-v3">
-        <div class="container">
-            {{--  User card  --}}
+   
 
-        </div>
-    </div>
 @endsection

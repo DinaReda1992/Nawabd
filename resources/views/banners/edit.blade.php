@@ -17,6 +17,8 @@
                 </div>
             <div class="col-12 text-end">
                 <button type="submit" class="btn btn-secondary">حفظ البيانات</button>
+                <a href="{{ url('/blogs') }}" class="btn btn-secondary">تراجع</a>
+
             </div>
         </form>
     </div>

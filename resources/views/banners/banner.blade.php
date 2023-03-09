@@ -45,6 +45,7 @@
                 <a href={{ route('banner.edit', $ban->id) }} class="btn btn-secondary my-3 px-5 text-white"
                     style="padding: 20px"><i class="fas fa-edit"></i> تعديل البانر </a>
                 @endforeach
+                <a href="{{ url('/blogs') }}" class="btn btn-secondary my-3 px-5 text-white " style="padding: 20px">تراجع</a>
             </div>
         </div>
     </div>

@@ -12,9 +12,9 @@
                         value="{{ old('category_name') }}" required autocomplete="category_name" autofocus
                         title="يرجي ادخال عنوان التصنيف" required>
                 </div>
-
-                <div class="col-12 text-end">
+                <div class="col-12 text-end mt-10">
                     <button type="submit" class="btn btn-secondary">حفظ البيانات</button>
+                    <a href="{{ url('/categories') }}" class="btn btn-secondary">تراجع</a>
                 </div>
             </div>
         </form>

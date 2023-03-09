@@ -19,14 +19,8 @@
                             title="يرجي ادخال محتوى المدونة" value="{{ old('content') }}" required autocomplete="content" autofocus required> 
                         </textarea>
                     </div>
-                    <div class="col-12 mt-3">
-                        <label for="tag" class="control-label w-100"> الكلمات الدلالية الموجودة حاليا</label>
-                        @foreach ($tags as $tag)
-                            <span class="badge bg-secondary me-2 mb-1 px-3"> {{ $tag->name }}</span>
-                        @endforeach                        
-                    </div>
                     <div class="col-12">
-                        <label for='tags' class="form-label"> الكلمات الدلالية للمقال </label>
+                        <label for='tags' class="form-label"> الكلمات الدلالية </label>
                         <input type="text" class="form-control" id="tag" data-role="tagsinput" name="tag"
                             value="{{ old('tag') }}" autocomplete="tag" autofocus>
                     </div>
@@ -57,6 +51,7 @@
                     </div>
                     <div class="col-12 text-end">
                         <button type="submit" class="btn btn-secondary">حفظ البيانات</button>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">تراجع</a>
                     </div>
                 </div>
             </div>
