@@ -34,7 +34,7 @@
                         @endforeach
                         <hr>
                         <h4 class="pt-2 pb-1 fs-4">{{ $blog->title }}</h4>
-                        <img src="{{ asset('/images/' . $blog->logo) }}" class="image-meta">
+                        <img src="{{ asset('/storage/' . $blog->logo) }}" class="image-meta">
                         <div class="date">
                             {{ $blog->created_at->format('d/m/Y') }}
                         </div>

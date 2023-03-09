@@ -85,7 +85,7 @@
                                 <th>#</th>
                                 <th>العنوان</th>
                                 <th>الكلمات الدلالية</th>
-                                <th>المحتوى</th>
+                                {{--  <th>المحتوى</th>  --}}
                                 <th>الصورة</th>
                                 <th>المؤلف</th>
                                 <th>العمليات</th>
@@ -101,11 +101,12 @@
                                     <td>
                                         {{ $blog->tagList }}
                                     </td>
-                                    <td>{!! substr($blog->content, 0, 200) !!}...
-                                    </td>
+                                    {{--  <td>                                
+                                            {!! substr($blog->content, 0, 300) !!}...
+                                    </td>  --}}
                                     <td>
                                         <a href={{ route('blogs.showBlog', $blog->id) }} title="إظهار المحتوى">
-                                            <img src="{{ asset('/images/' . $blog->logo) }}" width="100">
+                                            <img src="{{ asset('/storage/' . $blog->logo) }}" width="100">
                                         </a>
                                     </td>
                                     <td>{{ $blog->author }}</td>

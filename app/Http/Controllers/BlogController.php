@@ -105,7 +105,7 @@ class BlogController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'createdBy' => (Auth::user()->name),
-            'logo' => $this->uploadImage($request,'assets'),
+            'logo' => $this->uploadImage($request,'images'),
             'author' => $request->author,
             'category_id' =>$request->category_id    
             ]);

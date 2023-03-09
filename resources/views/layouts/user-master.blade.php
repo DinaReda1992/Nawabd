@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-12">
                     <a class="d-block w-100" href={{ url('https://nawabd.com/') }}>
-                        <img src="{{ asset('/images/' . $ban->logo) }}" class='image-meta w-100 bnr-img' style="height: 186px;">
+                        <img src="{{ asset('/storage/' . $ban->logo) }}" class='image-meta w-100 bnr-img' style="height: 186px;">
                     </a>
                 </div>
             </div>

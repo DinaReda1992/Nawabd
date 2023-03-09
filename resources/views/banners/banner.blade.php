@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-12 text-end">
                 @foreach ($banner as $ban)
-                    <img src="{{ asset('/images/' . $ban->logo) }}" width="1170px" height="186px">
+                    <img src="{{ asset('/storage/' . $ban->logo) }}" width="1170px" height="186px">
             </div>
             <div class="col-12 text-end">
                 <a href={{ route('banner.edit', $ban->id) }} class="btn btn-secondary my-3 px-5 text-white"
