@@ -16,7 +16,7 @@
                     <div class="col-12 mt-3">
                         <label for="content" class="control-label">محتوى المدونة</label>
                         <textarea type="text" class="ckeditor form-control" id="blogContentCreate" name="content" role="textbox"
-                            title="يرجي ادخال محتوى المدونة" value="{{ old('content') }}" required autocomplete="content" autofocus required> 
+                            title="يرجي ادخال محتوى المدونة" value="{{ old('content') }}"  autocomplete="content" autofocus required> 
                         </textarea>
                     </div>
                     <div class="col-12">
@@ -38,12 +38,12 @@
                     <div class='col-12 mt-3'>
                         <label for="author" class="control-label">المؤلف</label>
                         <input type="text" id="author" name="author" class="form-control" value="{{ old('author') }}"
-                            autocomplete="author" autofocus>
+                            autocomplete="author" required autofocus>
                     </div>
                     <div class='col-12 mt-3'>
                         <label for="logo">المرفقات</label>
                         <input type="file" name="logo" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
-                            data-height="70" />
+                            data-height="70" required />
                         <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
                     </div>
                     <div class="col-12">

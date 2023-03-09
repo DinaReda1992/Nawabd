@@ -19,11 +19,6 @@
                         @endforeach
                     </div>
                     <div class="col-12 mt-3">
-                        <label for='tags' class="form-label"> الكلمات الدلالية للمقال </label>
-                        <input type="text" class="form-control" id="tag" data-role="tagsinput" name="tag"
-                            value="{{ old('tag', $blog->tagList) }}" autocomplete="tag" autofocus>
-                    </div>
-                    <div class="col-12 mt-3">
                         <label for="content" class="control-label">محتوى المدونة</label>
                         <textarea type="text" class="ckeditor form-control" id="content" name="content" role="textbox"
                             value="{{ old('content', $blog->content) }}" required autocomplete="content" autofocus required>
@@ -46,12 +41,12 @@
                     <div class="col-12 mt-3">
                         <label for="author" class="control-label">المؤلف</label>
                         <input type="text" id="author" name="author" class="form-control"
-                            value="{{ old('author', $blog->author) }}" required autocomplete="author" autofocus>
+                            value="{{ old('author', $blog->author) }}" required autocomplete="author" required autofocus>
                     </div>
                     <div class="col-12 mt-3">
                         <label for="logo">المرفقات</label>
                         <input type="file" name="logo" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
-                            data-height="70" value="{{ old('logo', $blog->logo) }}" autocomplete="logo" autofocus />
+                            data-height="70" value="{{ old('logo', $blog->logo) }}" autocomplete="logo" autofocus required/>
                         <img src="{{ asset('/storage/' . $blog->logo) }}" width="150" height="150">{{ $blog->logo }}
                         <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
                     </div>

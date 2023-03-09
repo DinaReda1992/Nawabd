@@ -91,13 +91,19 @@ class BlogController extends Controller
        // $tag = Tag::all();
         $this->validate($request, [
 
-            'logo' => 'mimes:pdf,jpeg,png,jpg',
+            'logo' => 'mimes:pdf,jpeg,png,jpg|required',
             'title' =>'required',
             'content' => 'required',
-            'category_id' =>'required'
+            'category_id' =>'required',
+            'author' => 'required',
+            
 
             ], [
                 'logo.mimes' => 'صيغة المرفق يجب ان تكون   pdf, jpeg , png , jpg',
+                'author.required' => 'يرجى إدخال اسم المؤلف ',
+                'title.required' => 'يرجى إدخال عنوان المدونة',
+                'description.required' => 'يرجى إدخال المحتوى ',
+
             ]);
             
             $blog =Blog::create
@@ -148,11 +154,14 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255' ,
             'content' => 'required',
-            'logo' => 'nullable'
+            'logo' => 'nullable',
+            'author' => 'required',
+
             ]
             , [
                 'title.required' => 'يرجى إدخال عنوان المدونة',
                 'description.required' => 'يرجى إدخال المحتوى ',
+                'author.required' => 'يرجى إدخال اسم المؤلف ',
             ]);
             $distination = ''.$blog->logo;
             if (File::exists($distination))
