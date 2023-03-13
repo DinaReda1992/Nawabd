@@ -25,10 +25,6 @@ class BlogController extends Controller
 
     public function index(Request $request)
     {
-
-    //     User::orderBy('name', 'DESC')
-    // ->orderBy('email', 'ASC')
-    // ->get();
         $blogs = Blog::orderBy('created_at', 'DESC')
                 ->where([
                 ['title', '!=', Null],
@@ -107,7 +103,6 @@ class BlogController extends Controller
      */
     public function store(Request $request, Blog $blog)
     {
-       // $tag = Tag::all();
         $this->validate($request, [
 
             'logo' => 'mimes:pdf,jpeg,png,jpg|required',
