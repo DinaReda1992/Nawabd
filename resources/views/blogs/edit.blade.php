@@ -13,10 +13,9 @@
                             title="يرجي ادخال عنوان المدونة" required>
                     </div>
                     <div class="col-12 mt-3">
-                        <label for="tag" class="control-label w-100"> الكلمات الدلالية الموجودة حاليا</label>
-                        @foreach ($tags as $tag)
-                            <span class="badge bg-secondary m-2" style="width:100px"> {{ $tag->name }}</span>
-                        @endforeach
+                        <label for='tags' class="form-label"> الكلمات الدلالية </label>
+                        <input type="text" class="form-control" id="tag" data-role="tagsinput" name="tag"
+                            value="{{ old('tag', $blog->tag_list) }}" autocomplete="tag" autofocus>
                     </div>
                     <div class="col-12 mt-3">
                         <label for="content" class="control-label">محتوى المدونة</label>
@@ -46,7 +45,7 @@
                     <div class="col-12 mt-3">
                         <label for="logo">المرفقات</label>
                         <input type="file" name="logo" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
-                            data-height="70" value="{{ old('logo', $blog->logo) }}" autocomplete="logo" autofocus required/>
+                            data-height="70" value="{{ old('logo', $blog->logo) }}" autocomplete="logo" autofocus />
                         <img src="{{ asset('/storage/' . $blog->logo) }}" width="150" height="150">{{ $blog->logo }}
                         <p class="text-danger">* صيغة المرفق pdf, jpeg ,.jpg , png </p>
                     </div>
@@ -63,28 +62,26 @@
         <script>
             CKEDITOR.ClassicEditor
                 .create(document.querySelector("#content"), {
+                    language: 'ar',
+                    ckfinder: {
+                        uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
+            },
                     // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
-                    toolbar: {
-                        items: [
-                            'exportPDF', 'exportWord', '|',
-                            'findAndReplace', 'selectAll', '|',
+                    
+                    toolbar: {                   
+                        items: [                        
                             'heading', '|',
-                            'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
-                            'removeFormat', '|',
+                            'bold', 'italic', 'underline', 'removeFormat', '|',
                             'bulletedList', 'numberedList', 'todoList', '|',
                             'outdent', 'indent', '|',
                             'undo', 'redo',
                             '-',
-                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                            'fontSize', 'fontColor', 'highlight', '|',
                             'alignment', '|',
-                            'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed',
-                            '|',
-                            'specialCharacters', 'horizontalLine', 'pageBreak', '|',
-                            'textPartLanguage', '|',
-                            'sourceEditing'
+                            'link', 'insertImage', 'blockQuote', 'insertTable',
                         ],
                         shouldNotGroupWhenFull: true
-                    },
+                    },
                     // Changing the language of the interface requires loading the language file using the <script> tag.
                     // language: 'es',
                     list: {
@@ -228,12 +225,6 @@
                 .catch(err => {
                     console.error(err.stack);
                 });
-
-
-
-
-
-            ////////////////////////////////////////////////////////
         </script>
         {{--  <script>
         const tags = {{ Js::from($tags) }};

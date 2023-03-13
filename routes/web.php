@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/blogs/store', [BlogController::class, 'store'])->name('blogs.store')->middleware('admin');
     Route::get('/blogs/{id}', [BlogController::class, 'edit'])->name('blogs.edit')->middleware('admin');
     Route::post('/blogs/{id}', [BlogController::class, 'update'])->name('blogs.update')->middleware('admin');
+    Route::post('image-upload', [BlogController::class, 'storeImage'])->name('image.upload');
+
     //Route::delete('/blogs/destroy/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy')->middleware('admin');
     Route::resource('/blogs', BlogController::class)->middleware('admin');;
 

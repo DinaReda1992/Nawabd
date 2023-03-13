@@ -66,7 +66,6 @@
   .our-store-btn{
     font-size: 20px;
     background-color: #34c0c5;
-    box-shadow: 0 7px 14px 0 #616161, 0 6px 41px 0 rgb(0 0 0 / 4%);
     color: white;
     width: 170px;
     transition: all 1s;
@@ -74,7 +73,6 @@
   .our-store-btn:hover, .our-store-btn:focus{
     background-color: #616161 !important;
     transition: all 1s;
-    box-shadow: 0 7px 14px 0 #616161, 0 6px 41px 0 rgb(0 0 0 / 4%);
   }
   @media screen and (max-width: 600px) {
     .bnr-img {

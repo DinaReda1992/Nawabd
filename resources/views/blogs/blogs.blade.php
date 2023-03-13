@@ -22,7 +22,7 @@
                     <label for="search" class="sr-only">
                         Search
                     </label>
-                    <input type="text" name="s"
+                    <input type="search" name="s"
                         class="block w-full p-3 pl-10 text-sm border-gray-200 rounded-lg focus:border-blue-200 focus:ring-blue-500 dark:bg-gray-400 dark:border-gray-600 dark:text-gray-200"
                         placeholder="بحث..." style="margin-top: 10px" />
                     <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">

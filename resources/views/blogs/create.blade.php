@@ -1,11 +1,10 @@
 @extends('layouts.admin-master')
-
 @section('content')
     <title>
         إضافة مقال</title>
     <div class="card-header">
-        <form action="{{ route('blogs.store') }}" method="post" enctype="multipart/form-data" autocomplete="off">
-            {{ csrf_field() }}
+        <form action="{{ route('blogs.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
             <div class="container">
                 <div class='row'>
                     <div class="col-12 mt-3">
@@ -16,7 +15,7 @@
                     <div class="col-12 mt-3">
                         <label for="content" class="control-label">محتوى المدونة</label>
                         <textarea type="text" class="ckeditor form-control" id="blogContentCreate" name="content" role="textbox"
-                            title="يرجي ادخال محتوى المدونة" value="{{ old('content') }}"  autocomplete="content" autofocus required> 
+                            title="يرجي ادخال محتوى المدونة" value="{{ old('content') }}"  autocomplete="content" style="text-align: right" dir="rtl" autofocus required> 
                         </textarea>
                     </div>
                     <div class="col-12">
@@ -50,7 +49,7 @@
                         <hr />
                     </div>
                     <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-secondary">حفظ البيانات</button>
+                        <button type="submit" class="btn btn-secondary"> نشر</button>
                         <a href="{{ url()->previous() }}" class="btn btn-secondary">تراجع</a>
                     </div>
                 </div>
@@ -71,28 +70,30 @@
             })
             CKEDITOR.ClassicEditor
                 .create(document.querySelector("#blogContentCreate"), {
+                     language: 'ar',
+                    ckfinder: {
+                        uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
+            },
                     // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
-                    toolbar: {
-                        items: [
+                   
+                    toolbar: {                   
+                        items: [    
+                            'heading', '|',  
                             'exportPDF', 'exportWord', '|',
                             'findAndReplace', 'selectAll', '|',
-                            'heading', '|',
-                            'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
-                            'removeFormat', '|',
+                            'bold', 'italic', 'underline', 'removeFormat', '|',
                             'bulletedList', 'numberedList', 'todoList', '|',
                             'outdent', 'indent', '|',
                             'undo', 'redo',
                             '-',
-                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                            'fontSize', 'fontFamily', 'fontColor', 'highlight', '|',
                             'alignment', '|',
-                            'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed',
-                            '|',
-                            'specialCharacters', 'horizontalLine', 'pageBreak', '|',
-                            'textPartLanguage', '|',
-                            'sourceEditing'
+                            'specialCharacters' , '|',
+                            'link', 'insertImage', 'blockQuote', 'insertTable',
                         ],
                         shouldNotGroupWhenFull: true
-                    },
+                    },
+
                     // Changing the language of the interface requires loading the language file using the <script> tag.
                     // language: 'es',
                     list: {
@@ -237,17 +238,16 @@
                     ]
                 }).then(editor => {
                     window.editor = editor;
-                    console.log(editor)
                 })
                 .catch(err => {
                     console.error(err.stack);
                 });
-
-
-
-
-
-            ////////////////////////////////////////////////////////
         </script>
+        {{--  <script>
+            CKEDITOR.editorConfig = function (config) {
+                // Default language direction
+                config.contentsLangDirection = 'rtl';
+            };
+        </script>  --}}
     @endpush
 @endsection

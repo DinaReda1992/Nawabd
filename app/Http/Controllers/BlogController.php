@@ -25,13 +25,18 @@ class BlogController extends Controller
 
     public function index(Request $request)
     {
-        $blogs = Blog::where([
-            ['title', '!=', Null],
-            [function ($query) use ($request) {
+
+    //     User::orderBy('name', 'DESC')
+    // ->orderBy('email', 'ASC')
+    // ->get();
+        $blogs = Blog::orderBy('created_at', 'DESC')
+                ->where([
+                ['title', '!=', Null],
+                [function ($query) use ($request) {
                 if (($s = $request->s)) {
                     $query->orWhere('title', 'LIKE', '%' . $s . '%')
                         ->orWhere('content', 'LIKE', '%' . $s . '%')
-                        ->orderBy('created_at', 'desc')->get();
+                        ->get();
                 }
             }]
         ])->paginate(4);
@@ -43,9 +48,9 @@ class BlogController extends Controller
     {  
         $banner = Banner::all();
         $tags=Tag::all();
-        $blogs = Blog::orderBy('created_at', 'desc')->first()->paginate(2); 
+        $blogs = Blog::orderBy('created_at', 'DESC')->paginate(2); 
         if($request->filled('search')){
-            $categories = Category::search($request->search)->orderBy('created_at', 'desc')->get();
+            $categories = Category::search($request->search)->orderBy('created_at', 'DESC')->get();
         }else{
             $categories = Category::get();
         }
@@ -71,6 +76,20 @@ class BlogController extends Controller
         return view ("layouts.user-master", compact('$banner','tags','blogs'));
     }
 
+    public function storeImage(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+    
+            $request->file('upload')->move(public_path('media'), $fileName);
+    
+            $url = asset('media/' . $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
