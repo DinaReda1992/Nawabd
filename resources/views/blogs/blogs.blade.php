@@ -4,20 +4,20 @@
     <section class="container">
 
         <div class="row align-items-start">
-            <div class="col">
+            <div class="col gy-4">
                 <a href={{ route('categories.index') }} class="btn btn-secondary mt-10" style="padding: 20px">
                     <i class="fas fa-filter"></i> التصنيفات </a>
             </div>
-            <div class="col">
+            <div class="col gy-4">
 
                 <a href={{ route('banner.index') }} class="btn btn-secondary mt-10" style="padding: 20px 50px">
                     <i class="fas fa-image"></i> البانر </a>
             </div>
-            <div class="col">
+            <div class="col gy-4">
                 <a href={{ route('blogs.create') }} class="btn btn-secondary mt-10" style="padding: 20px"><i
                         class="fas fa-plus"></i> إضافة مدونة </a>
             </div>
-            <div class="col">
+            <div class="col gy-4">
                 <form action="{{ route('blogs.index') }}" method="GET">
                     <label for="search" class="sr-only">
                         Search
@@ -32,7 +32,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-4">
+            <div class="col-4 gy-4">
                 <div class='errors'>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -77,6 +77,8 @@
                     @endif
                 </div>
             </div>
+        </div>
+        <div class='row'>
             <div class="col-12">
                 <div class="table-responsive" style="margin-top:50px">
                     <table id="example" class="table table-hover table-striped">
